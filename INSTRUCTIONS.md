@@ -51,7 +51,7 @@ docker compose up --build
   * sqlserver - SQL Server 2022
   * rabbitmq - RabbitMQ + management UI
   * ops.api - the backend API
-  * frontend - the React app, served by nginx
+  * frontend - the React app, served by nginx, on port 5174
 
 * The API applies EF Core migrations itself on startup (Program.cs calls
   dbContext.Database.Migrate()), so there's no separate migration step.
@@ -86,10 +86,17 @@ docker compose down -v
 
 ## Help
 
-* ops.api depends on sqlserver/rabbitmq via depends_on, but that only
-  waits for the containers to *start*, not for SQL Server to actually be
-  ready to accept connections. On a first run the API container can crash
-  before SQL Server finishes booting - if that happens, just run it again:
+* The very first time you run `docker compose up --build`, the API can fail
+  to start. `ops.api` depends on `sqlserver` via `depends_on`, but that only
+  waits for the SQL Server container to *start*, not for SQL Server itself to
+  actually be ready to accept connections - and on startup the API tries to
+  connect right away to run its migration and create the database. If SQL
+  Server is still initializing at that moment, the API can't reach it and
+  crashes. SQL Server can take a little while to boot on a first run, so
+  this is fairly common the first time.
+
+  If this happens, just run it again once SQL Server has had time to finish
+  starting up:
 
 ```
 docker compose up
