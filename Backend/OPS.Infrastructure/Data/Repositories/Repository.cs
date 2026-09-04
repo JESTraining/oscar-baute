@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using OPS.Application.Common.Interfaces;
+using OPS.Application.Interfaces;
 using OPS.Domain.Common;
 
 namespace OPS.Infrastructure.Data.Repositories;

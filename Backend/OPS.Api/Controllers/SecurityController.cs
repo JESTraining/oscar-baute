@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OPS.Application.Common.Interfaces;
 using OPS.Application.Dtos;
+using OPS.Application.Interfaces;
 
 namespace OPS.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 [AllowAnonymous]
 public class SecurityController(ISecurityService securityService) : ControllerBase
 {

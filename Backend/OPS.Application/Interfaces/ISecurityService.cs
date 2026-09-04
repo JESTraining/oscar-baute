@@ -1,6 +1,6 @@
 using OPS.Application.Dtos;
 
-namespace OPS.Application.Common.Interfaces;
+namespace OPS.Application.Interfaces;
 
 public interface ISecurityService
 {

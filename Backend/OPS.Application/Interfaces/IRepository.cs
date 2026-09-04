@@ -1,6 +1,6 @@
 using OPS.Domain.Common;
 
-namespace OPS.Application.Common.Interfaces;
+namespace OPS.Application.Interfaces;
 
 public interface IRepository<T> where T : BaseEntity
 {

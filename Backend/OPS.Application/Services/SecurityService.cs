@@ -4,8 +4,8 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using OPS.Application.Common.Interfaces;
 using OPS.Application.Dtos;
+using OPS.Application.Interfaces;
 using OPS.Domain.Entities;
 
 namespace OPS.Application.Services;
