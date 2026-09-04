@@ -56,6 +56,7 @@ public class InventoryCheckConsumer : BackgroundService
         {
             try
             {
+                await Task.Delay(5000);
                 await HandleMessageAsync(ea);
                 channel.BasicAck(ea.DeliveryTag, multiple: false);
             }

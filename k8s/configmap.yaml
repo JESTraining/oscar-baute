@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-processing-config
+data:
+  ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=OrderProcessing;User Id=sa;Password=Test@123;TrustServerCertificate=True"
+  RabbitMq__Host: "rabbitmq"
+  RabbitMq__Username: "admin"
+  RabbitMq__Password: "Test@123"

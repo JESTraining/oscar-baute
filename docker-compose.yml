@@ -26,13 +26,25 @@ services:
       context: Backend
       dockerfile: OPS.Api/Dockerfile
     environment:
-      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=OrderProcessing;User Id=sa;Password=Test@123;TrustServerCertificate=true"    
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=OrderProcessing;User Id=sa;Password=Test@123;TrustServerCertificate=true"
       RabbitMq__Host: "rabbitmq"
       RabbitMq__Username: "admin"
       RabbitMq__Password: "Test@123"
     depends_on:
       - sqlserver
       - rabbitmq
+
+  frontend:
+    image: ${DOCKER_REGISTRY-}opsfrontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: "${VITE_API_BASE_URL:-http://localhost:8080/api}"
+    ports:
+      - "5174:80"
+    depends_on:
+      - ops.api
 
 volumes:
   sqldata:
