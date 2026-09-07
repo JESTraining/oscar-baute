@@ -1,0 +1,73 @@
+## =========================
+## .NET build output
+## =========================
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+build/
+bld/
+
+# Logs
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+## =========================
+## Rider / JetBrains
+## =========================
+.idea/
+*.sln.iml
+*.DotSettings.user
+*.user
+
+## =========================
+## ASP.NET Core
+## =========================
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+*.pfx
+
+# EF Core migrations working files (keep Migrations/ folder itself)
+efbin/
+
+# Test results
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+
+## =========================
+## Node / Frontend
+## =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+.next/
+.nuxt/
+.turbo/
+coverage/
+
+## =========================
+## Environment & secrets
+## =========================
+.env
+.env.*
+!.env.example
+*.pem
+secrets.*.yaml
+
+## =========================
+## OS / Editor cruft
+## =========================
+.DS_Store
+*.swp
+*~
